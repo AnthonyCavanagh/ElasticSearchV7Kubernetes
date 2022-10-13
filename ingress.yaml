@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: message-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /health
+        pathType: Prefix
+        backend:
+          service:
+            name: es-message-svc
+            port: 
+              number: 80
+      - path: /createOrUpdateDocument
+        pathType: Prefix
+        backend:
+          service:
+            name: es-message-svc
+            port: 
+              number: 80
+      - path: /searchDocument
+        pathType: Prefix
+        backend:
+          service:
+            name: es-message-svc
+            port: 
+              number: 80

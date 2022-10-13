@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: es-message
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: es-message
+  template:
+    metadata:
+      labels:
+        app: es-message
+    spec:
+      containers:
+      - name: es-message
+        image: tonycav/myrepo:rest-es-message-v6
+        ports:
+        - containerPort: 8080
